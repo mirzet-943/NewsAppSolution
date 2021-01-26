@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qiNaV4pBijZ6oYz1+VY4VnWhqHmBKmtc9F40E/fHc+pEopRhEk1YMv25ePLCZ/QpmcQuVxDKKDiO+cY54VrxYA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mirze\\source\\repos\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mirze\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
