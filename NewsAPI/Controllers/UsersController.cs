@@ -28,17 +28,11 @@ namespace NewsAPI.Controllers
             _repository = repository;
         }
 
+
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<List<User>> Get([FromQuery]int PageNumber)
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return await _repository.GetAllAsync<User>(new Models.Parameters.PageParameters() { PageNumber = PageNumber }, s => true, s => s.CreatedAt);
         }
     }
 }
