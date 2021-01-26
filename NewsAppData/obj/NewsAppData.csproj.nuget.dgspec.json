@@ -1,31 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mirze\\source\\repos\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj": {}
+    "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mirze\\source\\repos\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj": {
+    "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mirze\\source\\repos\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
+        "projectUniqueName": "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
         "projectName": "NewsAppData",
-        "projectPath": "C:\\Users\\mirze\\source\\repos\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
-        "packagesPath": "C:\\Users\\mirze\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mirze\\source\\repos\\NewsAppSolution\\NewsAppData\\obj\\",
+        "projectPath": "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
+        "packagesPath": "C:\\Users\\mirzet943\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mirze\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\mirzet943\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "c:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

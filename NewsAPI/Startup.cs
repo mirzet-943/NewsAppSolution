@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NewsAPI.Models;
+using NewsAppData;
 using System;
 
 namespace NewsAPI
@@ -30,18 +31,19 @@ namespace NewsAPI
                 configuration.RootPath = "ClientApp/dist";
             });
             services.AddDbContext<DatabaseContext>(options =>
-               options.UseSqlServer(
-                   Configuration.GetConnectionString("taxi-db-new"),
-                   sqlOptions =>
-                   {
-                       sqlOptions.EnableRetryOnFailure(
-                           maxRetryCount: 10,
-                           maxRetryDelay: TimeSpan.FromSeconds(1),
-                           errorNumbersToAdd: null
-                       );
-                   }
-               )
-           );
+                   options.UseSqlServer(
+                       Configuration.GetConnectionString("default"),
+                       sqlOptions =>
+                       {
+                           sqlOptions.EnableRetryOnFailure(
+                               maxRetryCount: 10,
+                               maxRetryDelay: TimeSpan.FromSeconds(1),
+                               errorNumbersToAdd: null
+                           );
+                       }
+                   )
+               );
+            services.AddScoped<IRepository, Repository<DatabaseContext>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
