@@ -16,3 +16,11 @@ C:\Users\mirzet943\Documents\Visual Studio 2019\Projects\NewsApplication\NewsApp
 C:\Users\mirzet943\Documents\Visual Studio 2019\Projects\NewsApplication\NewsAppSolution\NewsAppData\obj\Debug\netstandard2.1\NewsAppData.dll
 C:\Users\mirzet943\Documents\Visual Studio 2019\Projects\NewsApplication\NewsAppSolution\NewsAppData\obj\Debug\netstandard2.1\NewsAppData.pdb
 C:\Users\mirzet943\Documents\Visual Studio 2019\Projects\NewsApplication\NewsAppSolution\NewsAppData\obj\Debug\netstandard2.1\NewsAppData.csprojAssemblyReference.cache
+C:\Users\vbd0c\Desktop\Newsapp\NewsAppSolution\NewsAppData\bin\Debug\netstandard2.1\NewsAppData.deps.json
+C:\Users\vbd0c\Desktop\Newsapp\NewsAppSolution\NewsAppData\bin\Debug\netstandard2.1\NewsAppData.dll
+C:\Users\vbd0c\Desktop\Newsapp\NewsAppSolution\NewsAppData\bin\Debug\netstandard2.1\NewsAppData.pdb
+C:\Users\vbd0c\Desktop\Newsapp\NewsAppSolution\NewsAppData\obj\Debug\netstandard2.1\NewsAppData.AssemblyInfoInputs.cache
+C:\Users\vbd0c\Desktop\Newsapp\NewsAppSolution\NewsAppData\obj\Debug\netstandard2.1\NewsAppData.AssemblyInfo.cs
+C:\Users\vbd0c\Desktop\Newsapp\NewsAppSolution\NewsAppData\obj\Debug\netstandard2.1\NewsAppData.csproj.CoreCompileInputs.cache
+C:\Users\vbd0c\Desktop\Newsapp\NewsAppSolution\NewsAppData\obj\Debug\netstandard2.1\NewsAppData.dll
+C:\Users\vbd0c\Desktop\Newsapp\NewsAppSolution\NewsAppData\obj\Debug\netstandard2.1\NewsAppData.pdb
