@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,9 +7,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using NewsAPI.Models;
 using NewsAppData;
+using NewsAppData.Models;
 using System;
+using System.Text;
 
 namespace NewsAPI
 {
@@ -44,6 +48,42 @@ namespace NewsAPI
                    )
                );
             services.AddScoped<IRepository, Repository<DatabaseContext>>();
+
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+           
+            var appSettings = appSettingsSection.Get<AppSettings>();
+
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireCustomerRole", policy => policy.RequireRole("Head", "Admin", "Customer"));
+                options.AddPolicy("CustomerOnlyRole", policy => policy.RequireRole("Customer"));
+                options.AddPolicy("RequireDriverRole", policy => policy.RequireRole("Head", "Admin", "Driver"));
+                options.AddPolicy("AdminOnly", policy => policy.RequireRole("Head", "Admin"));
+                options.AddPolicy("HeadOnly", policy => policy.RequireRole("Head"));
+            });
+            // configure DI for application services
+            services.AddScoped<IUserService, UserService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

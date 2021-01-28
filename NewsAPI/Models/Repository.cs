@@ -21,8 +21,8 @@ namespace NewsAPI.Models
 
         public async Task CreateAsync<T>(T entity) where T : class
         {
-            this.dbContext.Set<T>().Add(entity);
 
+            this.dbContext.Set<T>().Add(entity);
             _ = await this.dbContext.SaveChangesAsync();
         }
 
@@ -55,6 +55,11 @@ namespace NewsAPI.Models
             this.dbContext.Set<T>().Update(entity);
 
             _ = await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<T>> Find<T>(Expression<Func<T, bool>> searchTermPredicate) where T : class
+        {
+            return await this.dbContext.Set<T>().Where(searchTermPredicate).ToListAsync();
         }
     }
 }
