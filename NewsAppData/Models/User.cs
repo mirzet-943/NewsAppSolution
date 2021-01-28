@@ -11,7 +11,7 @@ namespace NewsAppData
         public int UserID { get; set; }
 
         [Required]
-        public int Role { get; set; }
+        public string Role { get; set; }
         [Required,MinLength(5)]
         public string Username { get; set; }
         [Required,MinLength(6)]
@@ -20,5 +20,16 @@ namespace NewsAppData
         public DateTime CreatedAt { get; set; }
         public string FullName { get; set; }
         public string Token { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is User user &&
+                   Username == user.Username;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
