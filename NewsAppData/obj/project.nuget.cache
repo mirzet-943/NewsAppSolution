@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5/qCMh7B6uK+zL2hUeK3TYLQvOW8qsgRf4mM8YgFgqSmVJAjLK0/kl7FZOjBFTseFer0afw/RL2vTdG86TGGJw==",
+  "dgSpecHash": "y4Z/yET594o95eM6Ccu5GeRgNlCby1clfwpkkohwMVCcSVI5jKhn97voB1n/URmfdU74cqbnaOb6f/+e5R6QUA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vbd0c\\Desktop\\Newsapp\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
+  "projectFilePath": "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\vbd0c\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+    "C:\\Users\\mirzet943\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

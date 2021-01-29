@@ -38,9 +38,9 @@ namespace NewsAPI.Models
             return await this.dbContext.Set<T>().ToListAsync();
         }
 
-        public async Task<List<T>> GetAllAsync<T>(PageParameters pageParamers, Expression<Func<T, bool>> searchTermPredicate, Expression<Func<T, object>> orderByPredicate) where T : class
+        public async Task<PagedList<T>> GetAllAsync<T>(PageParameters pageParamers, Expression<Func<T, bool>> searchTermPredicate, Expression<Func<T, object>> orderByPredicate) where T : class
         {
-            return await Task.FromResult(PagedList<T>.ToPagedList(dbContext.Set<T>().OrderBy(orderByPredicate).Where(searchTermPredicate),
+            return await Task.FromResult(PagedList<T>.ToPagedList(dbContext.Set<T>().OrderByDescending(orderByPredicate).Where(searchTermPredicate),
                      pageParamers.PageNumber,
                          pageParamers.PageSize));
         }

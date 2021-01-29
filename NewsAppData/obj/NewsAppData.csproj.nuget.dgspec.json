@@ -1,30 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vbd0c\\Desktop\\Newsapp\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj": {}
+    "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vbd0c\\Desktop\\Newsapp\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj": {
+    "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vbd0c\\Desktop\\Newsapp\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
+        "projectUniqueName": "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
         "projectName": "NewsAppData",
-        "projectPath": "C:\\Users\\vbd0c\\Desktop\\Newsapp\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
-        "packagesPath": "C:\\Users\\vbd0c\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vbd0c\\Desktop\\Newsapp\\NewsAppSolution\\NewsAppData\\obj\\",
+        "projectPath": "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\NewsAppData.csproj",
+        "packagesPath": "C:\\Users\\mirzet943\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mirzet943\\Documents\\Visual Studio 2019\\Projects\\NewsApplication\\NewsAppSolution\\NewsAppData\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\vbd0c\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mirzet943\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "c:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -61,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

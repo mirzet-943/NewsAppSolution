@@ -37,7 +37,8 @@ namespace NewsAPI.Models
             if (user == null)
                 return null;
             bool verified = BCrypt.Net.BCrypt.Verify(password, user.Password);
-
+            if (!verified)
+                return null;
             await Task.Run(async () =>
             {
                 var tokenHandler = new JwtSecurityTokenHandler();

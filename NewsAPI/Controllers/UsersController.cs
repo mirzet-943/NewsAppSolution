@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using NewsAPI.Models;
 using NewsAppData;
+using NewsAppData.ViewModels;
 
 namespace NewsAPI.Controllers
 {
@@ -15,18 +17,14 @@ namespace NewsAPI.Controllers
     {
 
         private readonly IRepository _repository;
+        private readonly IUserService _userService;
         private readonly ILogger<UsersController> _logger;
 
-
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        public UsersController(ILogger<UsersController> logger, IRepository repository)
+        public UsersController(ILogger<UsersController> logger, IRepository repository, IUserService userService)
         {
             _logger = logger;
             _repository = repository;
+            _userService = userService;
         }
 
 
@@ -36,6 +34,19 @@ namespace NewsAPI.Controllers
             return await _repository.GetAllAsync<User>(new Models.Parameters.PageParameters() { PageNumber = PageNumber }, s => true, s => s.CreatedAt);
         }
 
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> Authenticate([FromBody] AuthenticateModel userParam)
+        {
+            var user = await _userService.Authenticate(userParam.Username, userParam.Password);
+            
+            if (user == null)
+                return Unauthorized("Username or password is incorrect");
+
+            return Ok(user);
+        }
+
+        [AllowAnonymous]
         [HttpPost,Route("register")]
         public async Task<IActionResult> Register(User user)
         {
@@ -44,6 +55,8 @@ namespace NewsAPI.Controllers
 
             if ((await _repository.Find<User>(s => s.Equals(user))).FirstOrDefault() != null)
             {
+                user.CreatedAt = DateTime.Now;
+                user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
                 await _repository.CreateAsync<User>(user);
                 return Ok();
             }
@@ -68,7 +81,7 @@ namespace NewsAPI.Controllers
         }
 
 
-        [HttpPost, Route("delete")]
+        [HttpPost, Route("delete/{userid}")]
         [Authorize]
         public async Task<IActionResult> DeleteUser([FromRoute] int userid)
         {

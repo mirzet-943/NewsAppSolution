@@ -25,6 +25,8 @@ namespace NewsAPI.Models.Pagging
         {
             var count = source.Count();
             var items = source;
+            if (pageNumber == 0)
+                return new PagedList<T>(items.ToList(), count, 0, 0);
             if (count > (pageNumber - 1) * pageSize)
                 items = items.Skip((pageNumber - 1) * pageSize);
             if (items.Count() > pageSize)

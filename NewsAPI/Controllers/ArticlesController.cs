@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using NewsAPI.Models.Pagging;
 using NewsAppData;
 
 namespace NewsAPI.Controllers
@@ -17,12 +18,6 @@ namespace NewsAPI.Controllers
         private readonly IRepository _repository;
         private readonly ILogger<ArticlesController> _logger;
 
-
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         public ArticlesController(ILogger<ArticlesController> logger, IRepository repository)
         {
             _logger = logger;
@@ -31,9 +26,15 @@ namespace NewsAPI.Controllers
 
 
         [HttpGet]
-        public async Task<List<Article>> Get([FromQuery] int PageNumber)
+        public async Task<PagedList<Article>> Get([FromQuery] int PageNumber, string searchTerm)
         {
             return await _repository.GetAllAsync<Article>(new Models.Parameters.PageParameters() { PageNumber = PageNumber }, s => true, s => s.CreatedAt);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<Article> GetById( int id)
+        {
+            return await _repository.SelectById<Article>(id);
         }
 
         [HttpPost, Route("create")]
@@ -41,7 +42,7 @@ namespace NewsAPI.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid object");
-
+            
             await _repository.CreateAsync<Article>(article);
             return Ok();
         }
@@ -63,7 +64,7 @@ namespace NewsAPI.Controllers
         }
 
 
-        [HttpPost, Route("delete{articleId")]
+        [HttpPost, Route("delete{articleId}")]
         [Authorize]
         public async Task<IActionResult> DeleteUser([FromRoute] int articleId)
         {

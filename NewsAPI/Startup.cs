@@ -28,6 +28,14 @@ namespace NewsAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder
+                    .WithOrigins(new[] { "https://localhost:44389" })
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+            }));
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -47,11 +55,12 @@ namespace NewsAPI
                        }
                    )
                );
+
             services.AddScoped<IRepository, Repository<DatabaseContext>>();
 
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
-           
+
             var appSettings = appSettingsSection.Get<AppSettings>();
 
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
@@ -83,6 +92,7 @@ namespace NewsAPI
             });
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IDbInitializer, DbInitializer>();
 
         }
 
@@ -99,6 +109,8 @@ namespace NewsAPI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCors();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -128,6 +140,15 @@ namespace NewsAPI
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+           
+            var scopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>();
+
+            using (var scope = scopeFactory.CreateScope())
+            {
+                var dbInitializer = scope.ServiceProvider.GetService<IDbInitializer>();
+                dbInitializer.Initialize();
+                dbInitializer.SeedData();
+            }
         }
     }
 }

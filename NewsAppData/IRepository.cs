@@ -1,4 +1,5 @@
-﻿using NewsAPI.Models.Parameters;
+﻿using NewsAPI.Models.Pagging;
+using NewsAPI.Models.Parameters;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -15,6 +16,6 @@ namespace NewsAppData
         Task CreateAsync<T>(T entity) where T : class;
         Task UpdateAsync<T>(T entity) where T : class;
         Task DeleteAsync<T>(T entity) where T : class;
-        Task<List<T>> GetAllAsync<T>(PageParameters pageParamers, Expression<Func<T, bool>> searchTermPredicate, Expression<Func<T, object>> orderByPredicate) where T : class;
+        Task<PagedList<T>> GetAllAsync<T>(PageParameters pageParamers, Expression<Func<T, bool>> searchTermPredicate, Expression<Func<T, object>> orderByPredicate) where T : class;
     }
 }
