@@ -105,7 +105,7 @@ export class UsersComponent {
       if(confirm("Are you sure to delete user: " + element.username)) {
          this.usersapi.deleteUser(element).subscribe(s=>{
           this.usersapi.getNextPage(this.nextPage.toString(),this.searchTerm).subscribe(data =>{
-            this.mUsers = this.mUsers.concat(data['items'])
+            this.mUsers = (data['items'])
             this.haveMorePages = data['hasNext'];
             this.nextPage = data["currentPage"] + 1;
             this.isFetchingInProgress = false;

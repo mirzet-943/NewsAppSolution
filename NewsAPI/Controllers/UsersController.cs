@@ -35,7 +35,7 @@ namespace NewsAPI.Controllers
         {
             if (searchTerm == null)
                 searchTerm = "";
-            var result =  await _repository.GetAllAsync<User>(new Models.Parameters.PageParameters() { PageNumber = PageNumber }, s => s.Username.Contains(searchTerm) || s.FullName.Contains(searchTerm), s => s.CreatedAt);
+            var result =  await _repository.GetAllAsync<User>(new Models.Parameters.PageParameters() { PageNumber = PageNumber }, s => s.Role == "Writer" && (s.Username.Contains(searchTerm) || s.FullName.Contains(searchTerm)), s => s.CreatedAt);
             var resultVM = new PagedList<UserVM>(result.Items.Select(s => new UserVM()
             {
                 FullName = s.FullName,

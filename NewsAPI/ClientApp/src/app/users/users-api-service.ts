@@ -41,6 +41,6 @@ export class UsersApiService {
    }
 
    deleteUser(element: any) {
-    return this.http.delete(`${environment.apiUrl}/users/delete/${element.userId}`,element);
+    return this.http.delete(`${environment.apiUrl}/users/delete/${element.userID}`,element);
    }
 }

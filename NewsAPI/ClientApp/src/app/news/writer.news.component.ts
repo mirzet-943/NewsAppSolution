@@ -20,6 +20,7 @@ export class WriterNewsComponent {
   isFetchingInProgress: boolean;
   isAdmin:boolean;
   userId:Number;
+  isWriter: boolean;
   writerArticlesOnly:boolean = true;
   constructor(private newsapi: WriterArticlesService, public auth: AuthenticationService,public dialog: MatDialog) {
     console.log('news component constructor called');
@@ -27,7 +28,7 @@ export class WriterNewsComponent {
 
 // tslint:disable-next-line: use-life-cycle-interface
   ngOnInit() {
-    this.auth.currentUser.subscribe(s=>{this.isAdmin = s.role == "Admin";this.userId = s.userID });
+    this.auth.currentUser.subscribe(s=>{this.isAdmin = s.role == "Admin";this.userId = s.userID; ; this.isWriter = s.role == "Writer" });
     // load articles
     this.isFetchingInProgress = true;
      this.newsapi.initArticles(this.searchTerm).subscribe(data => {this.mArticles = data['items']
@@ -84,7 +85,7 @@ export class WriterNewsComponent {
       var article  =  {subject: result.title, text: result.content, articleId: element.articleId};
       this.newsapi.editArticle(article).subscribe(x=> {
         this.mArticles.forEach(el => {
-          if (el.userID == element.userID){
+          if (el.articleId == element.articleId){
              el.subject = result.title;
              el.text = result.content;
             }

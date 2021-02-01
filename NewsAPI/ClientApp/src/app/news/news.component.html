@@ -2,8 +2,8 @@
 <mat-toolbar color="primary">
   <span>News Headlines</span>
   <span class="example-spacer"></span>
-  <input id="searchTerm" matInput placeholder="Search" (keyup)="onKey($event)" required>
-  <button mat-mini-fab color="green" (click)="openAddDialog()" style="margin-left: 10px; display: inline; float: right;" aria-label="Add">
+  <input style="display: inline; float: right;" id="searchTerm" placeholder="Search" (keyup)="onKey($event)" required>
+  <button mat-mini-fab color="green" *ngIf="isWriter && writerArticlesOnly" (click)="openAddDialog()" style="margin-left: 10px; display: inline; float: right;" aria-label="Add">
     <mat-icon>add</mat-icon>  
   </button>
 </mat-toolbar>
@@ -26,7 +26,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions class="action-buttons">
-      <button mat-button color="white" (click)="likeArticle(article.articleId)"><mat-icon>thumb_up_alt</mat-icon>{{article.likes}}</button>
+      <button mat-button color="white" *ngIf="!writerArticlesOnly" (click)="likeArticle(article.articleId)"><mat-icon>thumb_up_alt</mat-icon>{{article.likes}}</button>
       <button *ngIf="article.writerId === userId" mat-button color="white" (click)="deleteArticle(article.articleId)"><mat-icon>delete</mat-icon>Delete</button>
       <button *ngIf="article.writerId === userId" mat-button color="white" (click)="openEditDialog(article)"><mat-icon>edit</mat-icon>Edit</button>
     </mat-card-actions>

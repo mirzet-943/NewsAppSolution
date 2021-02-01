@@ -48,6 +48,8 @@ namespace NewsAPI.Models
             {
                 using (var context = serviceScope.ServiceProvider.GetService<DatabaseContext>())
                 {
+                    context.Users.RemoveRange(context.Users.ToList());
+                    context.SaveChanges();
                     if (!context.Users.Any())
                     {
                         var adminUser = new User
