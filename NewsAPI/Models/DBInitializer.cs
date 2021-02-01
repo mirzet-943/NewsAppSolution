@@ -48,9 +48,6 @@ namespace NewsAPI.Models
             {
                 using (var context = serviceScope.ServiceProvider.GetService<DatabaseContext>())
                 {
-                    context.Users.RemoveRange(context.Users.ToList());
-                    context.SaveChanges();
-                    //add admin user
                     if (!context.Users.Any())
                     {
                         var adminUser = new User
@@ -92,322 +89,325 @@ namespace NewsAPI.Models
                              Text = articleText,
                              Subject = articleTitle,
                              Likes = 0,
-                             WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                             WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,
+                             CreatedAt = DateTime.Now
                          },
                            new Article()
                           {
                               Text = articleText,
                               Subject = articleTitle,
                               Likes = 0,
-                              WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                              WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,
+                                CreatedAt = DateTime.Now
+
                           },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.Where(s=>s.Role == "Writer").ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            },
                            new Article()
                            {
                                Text = articleText,
                                Subject = articleTitle,
                                Likes = 0,
-                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID
+                               WriterId = context.Users.ToList()[new Random().Next(1,2)].UserID,  CreatedAt = DateTime.Now
                            }
                          });
                     }

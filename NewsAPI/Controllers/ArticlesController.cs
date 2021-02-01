@@ -84,7 +84,7 @@ namespace NewsAPI.Controllers
                 return Unauthorized();
 
             article.Subject = modifiedArticle.Subject;
-            article.Text = modifiedArticle.text;
+            article.Text = modifiedArticle.Text;
             await _repository.UpdateAsync<Article>(article);
             return Ok();
         }
