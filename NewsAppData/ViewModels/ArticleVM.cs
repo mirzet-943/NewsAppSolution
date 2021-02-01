@@ -14,5 +14,8 @@ namespace NewsAppData.ViewModels
         public DateTime CreatedAt { get; set; }
         public int Likes { get; set; }
 
+        public string WriterFullName { get; set; }
+        public int WriterId { get; set; }
+
     }
 }

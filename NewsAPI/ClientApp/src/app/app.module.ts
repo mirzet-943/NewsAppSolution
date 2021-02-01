@@ -10,6 +10,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule, MatTableModule  } from '@angular/material';
+import { MatInputModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -19,11 +21,21 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { NewsComponent } from './news/news.component';
+import { AddArticleDialog, EditArticleDialog, WriterNewsComponent } from './news/writer.news.component';
+import { AddUserDialog, UsersComponent } from './users/users.component';
+import { EditUserDialog } from './users/users.component';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule, MatProgressSpinnerModule } from '@angular/material';
 
 @NgModule({
     imports: [
+      BrowserAnimationsModule,
+      MatDialogModule,
         BrowserModule,
+        MatTableModule,
+        MatProgressSpinnerModule,
         ReactiveFormsModule,
+        FormsModule,
         HttpClientModule,
         appRoutingModule,
         MatButtonModule,
@@ -32,13 +44,27 @@ import { NewsComponent } from './news/news.component';
         MatToolbarModule,
         MatIconModule,
         MatSidenavModule,
-        MatListModule
-    ],
+        MatListModule,
+        MatFormFieldModule,
+        MatInputModule
+      ],
     declarations: [
         AppComponent,
         HomeComponent,
         LoginComponent,
-        NewsComponent
+        NewsComponent,
+        UsersComponent,
+        EditUserDialog,
+        WriterNewsComponent,
+        AddUserDialog,
+        EditArticleDialog,
+        AddArticleDialog
+    ],
+    entryComponents: [
+      EditUserDialog,
+      AddUserDialog,
+      EditArticleDialog,
+      AddArticleDialog
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

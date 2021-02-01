@@ -84,11 +84,8 @@ namespace NewsAPI
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("RequireCustomerRole", policy => policy.RequireRole("Head", "Admin", "Customer"));
-                options.AddPolicy("CustomerOnlyRole", policy => policy.RequireRole("Customer"));
-                options.AddPolicy("RequireDriverRole", policy => policy.RequireRole("Head", "Admin", "Driver"));
-                options.AddPolicy("AdminOnly", policy => policy.RequireRole("Head", "Admin"));
-                options.AddPolicy("HeadOnly", policy => policy.RequireRole("Head"));
+                options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("Writer", policy => policy.RequireRole("Admin", "Writer"));
             });
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
@@ -118,9 +115,9 @@ namespace NewsAPI
             {
                 app.UseSpaStaticFiles();
             }
-
+            app.UseAuthentication();
             app.UseRouting();
-
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

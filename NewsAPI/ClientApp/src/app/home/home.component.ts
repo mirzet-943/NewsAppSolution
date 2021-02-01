@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { User } from '../_models/user';
@@ -7,15 +8,11 @@ import { UserService, AuthenticationService } from '../_services';
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent {
     loading = false;
-    users: User[];
-
-    constructor(private userService: UserService) { }
+    constructor(public router:Router) { }
 
     ngOnInit() {
         this.loading = true;
-        this.userService.getAll().pipe(first()).subscribe(users => {
-            this.loading = false;
-            this.users = users;
-        });
+         this.router.navigate(['/news'])
+        
     }
 }

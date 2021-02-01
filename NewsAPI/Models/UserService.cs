@@ -15,7 +15,7 @@ namespace NewsAPI.Models
 {
     public interface IUserService
     {
-        Task<UserVM> Authenticate(string username, string password);
+        Task<User> Authenticate(string username, string password);
     }
 
     public class UserService : IUserService
@@ -30,7 +30,7 @@ namespace NewsAPI.Models
             _repository = repository;
         }
 
-        public async Task<UserVM> Authenticate(string username, string password)
+        public async Task<User> Authenticate(string username, string password)
         {
             var user = (await _repository.Find<User>(s => s.Username == username)).FirstOrDefault();
 
@@ -57,12 +57,14 @@ namespace NewsAPI.Models
                 user.Token = tokenHandler.WriteToken(token);
                 await _repository.UpdateAsync<User>(user);
             });
-            return new UserVM()
+            return new User()
             {
                 FullName  = user.FullName,
                 Role = user.Role,
                 UserID = user.UserID,
-                Username = user.Username
+                Username = user.Username,
+                CreatedAt = user.CreatedAt,
+                Token = user.Token
             };
         }
 

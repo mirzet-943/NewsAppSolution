@@ -40,12 +40,15 @@ namespace NewsAPI.Models
 
         public async Task<PagedList<T>> GetAllAsync<T>(PageParameters pageParamers, Expression<Func<T, bool>> searchTermPredicate, Expression<Func<T, object>> orderByPredicate) where T : class
         {
-            return await Task.FromResult(PagedList<T>.ToPagedList(dbContext.Set<T>().OrderByDescending(orderByPredicate).Where(searchTermPredicate),
+            var dbSet = dbContext.Set<T>().AsQueryable();
+            if (typeof(T) == typeof(Article))
+                dbSet = dbSet.Include("Writer");
+            return await Task.FromResult(PagedList<T>.ToPagedList(dbSet.OrderByDescending(orderByPredicate).Where(searchTermPredicate),
                      pageParamers.PageNumber,
                          pageParamers.PageSize));
         }
 
-        public async Task<T> SelectById<T>(long id) where T : class
+        public async Task<T> SelectById<T>(object id) where T : class
         {
             return await this.dbContext.Set<T>().FindAsync(id);
         }
@@ -53,7 +56,6 @@ namespace NewsAPI.Models
         public async Task UpdateAsync<T>(T entity) where T : class
         {
             this.dbContext.Set<T>().Update(entity);
-
             _ = await this.dbContext.SaveChangesAsync();
         }
 

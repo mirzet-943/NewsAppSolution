@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace NewsAPI.Models.Pagging
 {
-    public class PagedList<T> : List<T>
+    public class PagedList<T> 
     {
         public int CurrentPage { get; private set; }
         public int TotalPages { get; private set; }
@@ -13,13 +13,18 @@ namespace NewsAPI.Models.Pagging
         public int TotalCount { get; private set; }
         public bool HasPrevious => CurrentPage > 1;
         public bool HasNext => CurrentPage < TotalPages;
+
+        public List<T> Items { get; set; }
+
+
+
         public PagedList(List<T> items, int count, int pageNumber, int pageSize)
         {
             TotalCount = count;
             PageSize = pageSize;
             CurrentPage = pageNumber;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
-            AddRange(items);
+            Items = new List<T>(items);
         }
         public static PagedList<T> ToPagedList(IQueryable<T> source, int pageNumber, int pageSize)
         {
