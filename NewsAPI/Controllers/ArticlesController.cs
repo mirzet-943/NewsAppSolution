@@ -38,7 +38,7 @@ namespace NewsAPI.Controllers
             {
                 return null;
             }
-            var result = await _repository.GetAllAsync<Article>(new Models.Parameters.PageParameters() { PageNumber = PageNumber }, (s => s.Subject.ToLower().Contains(searchTerm.ToLower()) && myArticles?Convert.ToInt32(claimId.Value) == s.WriterId:1==1), s => s.CreatedAt);
+            var result = await _repository.GetAllAsync<Article>(new Models.Parameters.PageParameters() { PageNumber = PageNumber }, (s => s.Subject.ToLower().Contains(searchTerm.ToLower()) && (myArticles == true?Convert.ToInt32(claimId.Value) == s.WriterId:true)), s => s.CreatedAt);
 
             var articleItemsVM = result.Items.Select(s => new ArticleVM { ArticleId = s.ArticleId, CreatedAt = s.CreatedAt, Likes = s.Likes, Subject = s.Subject, Text = s.Text, WriterFullName = s.Writer.FullName, WriterId = s.WriterId }).ToList();
                 
